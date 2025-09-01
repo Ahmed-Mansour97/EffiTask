@@ -4,6 +4,24 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @OA\Schema(
+ *     schema="UpdateTaskRequest",
+ *     type="object",
+ *     title="Update Task Request",
+ *     description="Data allowed for updating a task",
+ *     @OA\Property(property="title", type="string", example="Updated task title"),
+ *     @OA\Property(property="description", type="string", example="Updated task description"),
+ *     @OA\Property(property="due_date", type="string", format="date", example="2025-06-01"),
+ *     @OA\Property(property="assigned_to", type="integer", example=2),
+ *     @OA\Property(
+ *         property="dependency_ids",
+ *         type="array",
+ *         @OA\Items(type="integer", example=2),
+ *         description="Array of task IDs this task depends on"
+ *     )
+ *  )
+ */
 class UpdateTaskRequest extends FormRequest
 {
     /**

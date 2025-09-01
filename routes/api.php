@@ -18,6 +18,7 @@ Route::middleware([JwtMiddleware::class])->group(function () {
     Route::prefix('tasks')->group(function () {
         Route::get('', [TaskController::class, 'index']);
         Route::post('', [TaskController::class, 'create']);
+        Route::get('my-tasks', [TaskController::class, 'myTasks']);
         Route::put('/{task}/change-status', [TaskController::class, 'changeStatus']);
         Route::get('/{task}', [TaskController::class, 'show']);
         Route::put('/{task}', [TaskController::class, 'update']);

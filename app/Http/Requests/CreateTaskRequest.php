@@ -4,6 +4,25 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @OA\Schema(
+ *     schema="CreateTaskRequest",
+ *     type="object",
+ *     title="Create Task Request",
+ *     description="Data required to create a new task",
+ *     required={"title", "status"},
+ *     @OA\Property(property="title", type="string", example="Create API documentation"),
+ *     @OA\Property(property="description", type="string", example="Write Swagger docs for task creation"),
+ *     @OA\Property(property="due_date", type="string", format="date", example="2025-05-20"),
+ *     @OA\Property(property="assigned_to", type="integer", example=1),
+ *     @OA\Property(
+ *         property="dependency_ids",
+ *         type="array",
+ *         @OA\Items(type="integer", example=2),
+ *         description="Array of task IDs this task depends on"
+ *     )
+ * )
+ */
 class CreateTaskRequest extends FormRequest
 {
     /**
